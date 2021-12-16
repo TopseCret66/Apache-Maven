@@ -72,7 +72,7 @@ public class AppTest
     }
 
     @Test
-    public void webmastersTest(){
+    public void TestCase1(){
         System.setProperty(
                 "webdriver.chrome.driver", "src/main/resources/chromedriver.exe"
         );
@@ -134,5 +134,103 @@ public class AppTest
 //
 //        WebElement blogs2 = driver.findElement(By.linkText("как получить?"));
 //        blogs2.click();
+    }
+
+    @Test
+    public void TestCase2(){
+        System.setProperty(
+                "webdriver.chrome.driver", "src/main/resources/chromedriver.exe"
+        );
+        WebDriver driver = new ChromeDriver();
+        driver.get("http://webmasters.ru/forum/register.php");
+        driver.manage().window().setSize(new Dimension(1301, 860));
+
+        WebElement regusername = driver.findElement(By.id("regusername"));
+        regusername.click();
+        regusername.sendKeys("hhgghm");
+
+        WebElement password = driver.findElement(By.id("password"));
+        password.click();
+        password.sendKeys("01081991");
+
+        WebElement passwordconfirm = driver.findElement(By.id("passwordconfirm"));
+        passwordconfirm.click();
+        passwordconfirm.sendKeys("01081991");
+
+        WebElement email = driver.findElement(By.id("email"));
+        email.click();
+
+        WebElement email2 = driver.findElement(By.id("email"));
+        email2.click();
+        email2.sendKeys("pala487@mail.ru");
+
+        WebElement emailconfirm = driver.findElement(By.id("emailconfirm"));
+        emailconfirm.click();
+        emailconfirm.sendKeys("pala487@mail.ru");
+
+        WebElement vsaareg_code = driver.findElement(By.name("vsaareg_code"));
+        vsaareg_code.click();
+        vsaareg_code.sendKeys("dfvdfv");
+
+        WebElement agree = driver.findElement(By.name("agree"));
+        agree.click();
+
+        WebElement button = driver.findElement(By.cssSelector(".button:nth-child(11)"));
+        button.click();
+
+        WebElement reguser1 = driver.findElement(By.id("regusername"));
+        String text = reguser1.getAttribute("value");
+
+        assertEquals("hhgghm", text);
+
+    }
+
+    @Test
+    public void TestCase3(){
+        System.setProperty(
+                "webdriver.chrome.driver", "src/main/resources/chromedriver.exe"
+        );
+        WebDriver driver = new ChromeDriver();
+        driver.get("http://webmasters.ru/forum/register.php");
+        driver.manage().window().setSize(new Dimension(1301, 860));
+
+        WebElement regusername = driver.findElement(By.id("regusername"));
+        regusername.click();
+        regusername.sendKeys("hhgghm");
+
+        WebElement password = driver.findElement(By.id("password"));
+        password.click();
+        password.sendKeys("01081991");
+
+        WebElement passwordconfirm = driver.findElement(By.id("passwordconfirm"));
+        passwordconfirm.click();
+        passwordconfirm.sendKeys("01081991");
+
+        WebElement email = driver.findElement(By.id("email"));
+        email.click();
+
+        WebElement email2 = driver.findElement(By.id("email"));
+        email2.click();
+        email2.sendKeys("pala487@mail.ru");
+
+        WebElement emailconfirm = driver.findElement(By.id("emailconfirm"));
+        emailconfirm.click();
+        emailconfirm.sendKeys("pala487@mail.ru");
+
+        WebElement vsaareg_code = driver.findElement(By.name("vsaareg_code"));
+        vsaareg_code.click();
+        vsaareg_code.sendKeys("dfvdfv");
+
+        WebElement agree = driver.findElement(By.name("agree"));
+        agree.click();
+
+        WebElement button = driver.findElement(By.cssSelector(".button:nth-child(11)"));
+        button.click();
+
+        WebElement adminemail = driver.findElement(By.id("cb_adminemail"));
+        String value = adminemail.getAttribute("checked");
+
+        assertEquals("true", value);
+
     }
 }
